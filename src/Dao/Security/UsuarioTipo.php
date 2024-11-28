@@ -4,7 +4,7 @@ namespace Dao\Security;
 
 final class UsuarioTipo extends \Utilities\Enum
 {
-    const PUBLICO  = "PBL";
+    const CLIENTE  = "CLI";
     const ADMINITRADAOR = "ADM";
     const AUDITOR = "AUD";
 }
