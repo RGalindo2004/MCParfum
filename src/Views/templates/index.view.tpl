@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{SITE_TITLE}}</title>
+<title>{{SITE_TITLE}}</title>
     <style>
+        header, footer
+        {
+            background-color: #A45D5D;
+        }
+
+        #menu
+        {
+            background-color: #833939;
+        }
         body {
             margin: 0;
             font-family: 'Georgia', serif;
@@ -73,5 +76,3 @@
 
 
 </body>
-
-</html>
