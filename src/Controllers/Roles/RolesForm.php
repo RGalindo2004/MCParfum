@@ -2,13 +2,14 @@
 
 namespace Controllers\Roles;
 
+use Controllers\PrivateController;
 use Controllers\PublicController;
 use Views\Renderer;
 use Utilities\Site;
 use Dao\Roles\Roles;
 use Utilities\Validators;
 
-class RolesForm extends PublicController
+class RolesForm extends PrivateController
 {
     private $viewData = [];
     private $modeDscArr =

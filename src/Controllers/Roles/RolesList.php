@@ -2,6 +2,7 @@
 
 namespace Controllers\Roles;
 
+use Controllers\PrivateController;
 use Controllers\PublicController;
 use Dao\Roles\Roles;
 use Views\Renderer;

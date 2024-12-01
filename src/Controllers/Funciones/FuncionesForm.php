@@ -2,13 +2,14 @@
 
 namespace Controllers\Funciones;
 
+use Controllers\PrivateController;
 use Controllers\PublicController;
 use Views\Renderer;
 use Utilities\Site;
 use Dao\Funciones\Funciones;
 use Utilities\Validators;
 
-class FuncionesForm extends PublicController
+class FuncionesForm extends PrivateController
 {
     private $viewData = [];
     private $modeDscArr = [

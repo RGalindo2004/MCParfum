@@ -12,6 +12,7 @@ use Utilities\Validators;
 class UsuariosForm extends PrivateController
 {
     private $viewData = [];
+    
     private $modeDscArr =
     [
         "INS" => "Crear nuevo usuario",
@@ -51,7 +52,7 @@ class UsuariosForm extends PrivateController
         "userest" => 'ACT',
         "useractcod" => '',
         "userpswdchg" => '',
-        "usertipo" => 'ADM',
+        "usertipo" => '',
     ];
 
     public function run(): void
@@ -67,6 +68,16 @@ class UsuariosForm extends PrivateController
             }
         }
 
+        $this->viewData["useremail_enable"] = $this->isFeatureAutorized('useremail_enable');
+        $this->viewData["userpswd_enable"] = $this->isFeatureAutorized('userpswd_enable');
+        $this->viewData["userfching_enable"] = $this->isFeatureAutorized('userfching_enable');
+        $this->viewData["userpswdest_enable"] = $this->isFeatureAutorized('userpswdest_enable');
+        $this->viewData["userpswdexp_enable"] = $this->isFeatureAutorized('userpswdexp_enable');
+        $this->viewData["userest_enable"] = $this->isFeatureAutorized('userest_enable');
+        $this->viewData["useractcod_enable"] = $this->isFeatureAutorized('useractcod_enable');
+        $this->viewData["userpswdchg_enable"] = $this->isFeatureAutorized('userpswdchg_enable');
+        $this->viewData["usertipo_enable"] = $this->isFeatureAutorized('usertipo_enable');
+        
         $this->generarViewData();
         Renderer::render('usuarios/usuarios_form', $this->viewData);
     }

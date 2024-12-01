@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="public/css_src/home.less"/>
+
 <h1>{{modes_dsc}}</h1>
 <section class="grid">
     <form action="index.php?page=Funciones-FuncionesForm&mode={{mode}}&fncod={{fncod}}" method="POST" class="row">

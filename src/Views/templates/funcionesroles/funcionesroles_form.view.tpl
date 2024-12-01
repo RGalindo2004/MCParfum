@@ -2,8 +2,8 @@
 
 <h1>{{modes_dsc}}</h1>
 <section class="grid">
-    <form action="index.php?page=Roles-RolesForm&mode={{mode}}&rolescod={{rolescod}}" method="POST" class="row">
-        {{with rol}}
+    <form action="index.php?page=FuncionesRoles-FuncionesRolesForm&mode={{mode}}&rolescod={{rolescod}}&fncod={{fncod}}" method="POST" class="row">
+        {{with funcionRol}}
         <div class="row col-6 offset-3">
             <label class="col-4" for="rolescod">Código de Rol</label>
             <input class="col-8" type="text" name="rolescod" id="rolescod" value="{{rolescod}}" {{~readonly_rolescod}}>
@@ -16,34 +16,30 @@
                 </ul>
             </div>
             {{endif ~rolescod_haserror}}
+        </div>
 
-            <input type="hidden" name="xssToken" value="{{~xssToken}}" />
-        </div>
         <div class="row col-6 offset-3">
-            <label class="col-4" for="rolesdsc">Descripción del Rol</label>
-            <input class="col-8" type="text" name="rolesdsc" id="rolesdsc" value="{{rolesdsc}}" {{~readonly}}>
-            {{if ~rolesdsc_haserror}}
+            <label class="col-4" for="fncod">Código de Función</label>
+            <input class="col-8" type="text" name="fncod" id="fncod" value="{{fncod}}" {{~readonly_fncod}}>
+            {{if ~fncod_haserror}}
             <div class="error">
                 <ul>
-                    {{foreach ~rolesdsc_error}}
+                    {{foreach ~fncod_error}}
                     <li>{{this}}</li>
-                    {{endfor ~rolesdsc_error}}
+                    {{endfor ~fncod_error}}
                 </ul>
             </div>
-            {{endif ~rolesdsc_haserror}}
+            {{endif ~fncod_haserror}}
         </div>
+
         <div class="row col-6 offset-3">
-            <label class="col-4" for="rolesest">Estado del Rol</label>
-            <input class="col-8" type="text" name="rolesest" id="rolesest" value="{{rolesest}}" {{~readonly}}>
-            {{if ~rolesest_haserror}}
-            <div class="error">
-                <ul>
-                    {{foreach ~rolesest_error}}
-                    <li>{{this}}</li>
-                    {{endfor ~rolesest_error}}
-                </ul>
-            </div>
-            {{endif ~rolesest_haserror}}
+            <label class="col-4" for="fnrolest">Estado</label>
+            <input class="col-8" type="text" name="fnrolest" id="fnrolest" value="{{fnrolest}}" {{~readonly}}>
+        </div>
+
+        <div class="row col-6 offset-3">
+            <label class="col-4" for="fnexp">Expiración</label>
+            <input class="col-8" type="datetime-local" name="fnexp" id="fnexp" value="{{fnexp}}" {{~readonly}}>
         </div>
 
         <div class="row col-6 offset-3 flex-end">
@@ -65,7 +61,7 @@
         </div>
         {{endif ~global_haserror}}
 
-        {{endwith rol}}
+        {{endwith funcionRol}}
     </form>
 
     <script>
@@ -73,8 +69,8 @@
             document.getElementById("btnCancelar").addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                window.location.assign("index.php?page=Roles-RolesList");
-            })
+                window.location.assign("index.php?page=FuncionesRoles-FuncionesRolesList");
+            });
         });
     </script>
 </section>

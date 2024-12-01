@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="public/css_src/home.less"/>
+
 <h1>{{modes_dsc}}</h1>
 <section class="grid">
     <form action="index.php?page=Usuarios-UsuariosForm&mode={{mode}}&usercod={{usercod}}" method="POST" class="row">
@@ -9,6 +11,8 @@
         <input type="hidden" name="xssToken" value="{{~xssToken}}"/>
         
         </div>
+
+        {{if ~useremail_enable}}
         <div class="row col-6 offset-3">
             <label class="col-4" for="useremail">Correo Electrónico</label>
             <input class="col-8" type="email" name="useremail" id="useremail" value="{{useremail}}" {{~readonly}}>
@@ -22,6 +26,8 @@
                 </div>
             {{endif ~useremail_haserror}}
         </div>
+        {{endif ~useremail_enable}}
+
         <div class="row col-6 offset-3">
             <label class="col-4" for="username">Nombre de Usuario</label>
             <input class="col-8" type="text" name="username" id="username" value="{{username}}" {{~readonly}}>
@@ -35,6 +41,8 @@
                 </div>
             {{endif ~username_haserror}}
         </div>
+
+        {{if ~userpswd_enable}}
         <div class="row col-6 offset-3">
             <label class="col-4" for="userpswd">Contraseña</label>
             <input class="col-8" type="password" name="userpswd" id="userpswd" value="{{userpswd}}" {{~readonly}}>
@@ -48,30 +56,47 @@
                 </div>
             {{endif ~userpswd_haserror}}
         </div>
+        {{endif ~userpswd_enable}}
+
+        {{if ~userfching_enable}}
         <div class="row col-6 offset-3">
             <label class="col-4" for="userfching">Fecha de Ingreso</label>
             <input class="col-8" type="datetime-local" name="userfching" id="userfching" value="{{userfching}}" {{~readonly}}>
         </div>
+        {{endif ~userfching_enable}}
+
+
         <div class="row col-6 offset-3">
             <label class="col-4" for="userpswdest">Estado de la Contraseña</label>
             <input class="col-8" type="text" name="userpswdest" id="userpswdest" value="{{userpswdest}}" {{~readonly}}>
         </div>
+
+        {{if ~userfching_enable}}
         <div class="row col-6 offset-3">
             <label class="col-4" for="userpswdexp">Fecha de Expiración de la Contraseña</label>
             <input class="col-8" type="datetime-local" name="userpswdexp" id="userpswdexp" value="{{userpswdexp}}" {{~readonly}}>
         </div>
+        {{endif ~userfching_enable}}
+
         <div class="row col-6 offset-3">
             <label class="col-4" for="userest">Estado del Usuario</label>
             <input class="col-8" type="text" name="userest" id="userest" value="{{userest}}" {{~readonly}}>
         </div>
+
+        {{if ~useractcod_enable}}
         <div class="row col-6 offset-3">
             <label class="col-4" for="useractcod">Código de Activación</label>
             <input class="col-8" type="text" name="useractcod" id="useractcod" value="{{useractcod}}" {{~readonly}}>
         </div>
+        {{endif ~useractcod_enable}}
+
+        {{if ~userpswdchg_enable}}
         <div class="row col-6 offset-3">
             <label class="col-4" for="userpswdchg">Cambio de Contraseña</label>
             <input class="col-8" type="text" name="userpswdchg" id="userpswdchg" value="{{userpswdchg}}" {{~readonly}}>
         </div>
+        {{endif ~userpswdchg_enable}}
+        
         <div class="row col-6 offset-3">
             <label class="col-4" for="usertipo">Tipo de Usuario</label>
             <input class="col-8" type="text" name="usertipo" id="usertipo" value="{{usertipo}}" {{~readonly}}>

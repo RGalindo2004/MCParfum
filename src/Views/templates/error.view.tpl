@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="public/css_src/home.less"/>
+
 <h1>
     Oops.
 </h1>

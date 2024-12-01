@@ -48,7 +48,6 @@ class UsuariosList extends PrivateController
             "INS_enable" => $this->isFeatureAutorized('usuarios_INS_enable'),
             "UPD_enable" => $this->isFeatureAutorized('usuarios_UPD_enable'),
             "DEL_enable" => $this->isFeatureAutorized('usuarios_DEL_enable'),
-
             "useremail_enable" => $this->isFeatureAutorized('useremail_enable'),
             "userpswd_enable" => $this->isFeatureAutorized('userpswd_enable'),
             "userfching_enable" => $this->isFeatureAutorized('userfching_enable'),
