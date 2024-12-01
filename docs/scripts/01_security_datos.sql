@@ -48,7 +48,10 @@ VALUES
 ('usertipo_enable', 'usertipo_enable', 'ACT', 'FNC'),
 ('usuarios_DEL_enable', 'usuarios_DEL_enable', 'ACT', 'FNC'),
 ('usuarios_INS_enable', 'usuarios_INS_enable', 'ACT', 'FNC'),
-('usuarios_UPD_enable', 'usuarios_UPD_enable', 'ACT', 'FNC');
+('usuarios_UPD_enable', 'usuarios_UPD_enable', 'ACT', 'FNC'),
+('funcionesroles_DEL_enable', 'funcionesroles_DEL_enable', 'ACT', 'FNC'),
+('funcionesroles_INS_enable', 'funcionesroles_INS_enable', 'ACT', 'FNC'),
+('funcionesroles_UPD_enable', 'funcionesroles_UPD_enable', 'ACT', 'FNC');
 
 INSERT INTO `funciones_roles` 
 (`rolescod`, `fncod`, `fnrolest`, `fnexp`) 
@@ -77,6 +80,9 @@ VALUES
 ('Admin', 'usuarios_DEL_enable', 'ACT', '2024-12-08 00:00:00'),
 ('Admin', 'usuarios_INS_enable', 'ACT', '2024-12-08 00:00:00'),
 ('Admin', 'usuarios_UPD_enable', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'funcionesroles_DEL_enable', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'funcionesroles_INS_enable', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'funcionesroles_UPD_enable', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Controllers\\Usuarios\\UsuariosForm', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Controllers\\Usuarios\\UsuariosList', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Menu_Usuarios', 'ACT', '2024-12-08 00:00:00'),

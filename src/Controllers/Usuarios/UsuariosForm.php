@@ -151,11 +151,6 @@ class UsuariosForm extends PrivateController
             $this->addError("La contraseña no puede ir vacía", "userpswd");
         }
 
-        if($this->usuario["useractcod"] > 999)
-        {
-            $this->addError("No se encuentra dentro del rango");
-        }
-
         return count ($this->errors) === 0;
     }
 

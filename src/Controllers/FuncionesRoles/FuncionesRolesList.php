@@ -12,7 +12,15 @@ class FuncionesRolesList extends PrivateController
     public function run(): void
     {
         $funcionesRoles = FuncionesRoles::obtenerFuncionesRoles();
-        $viewData = ["funcionesRoles" => $funcionesRoles];
+        $viewData =
+        [
+            "funcionesRoles" => $funcionesRoles,
+
+            "INS_enable" => $this->isFeatureAutorized('funcionesroles_INS_enable'),
+            "UPD_enable" => $this->isFeatureAutorized('funcionesroles_UPD_enable'),
+            "DEL_enable" => $this->isFeatureAutorized('funcionesroles_DEL_enable')
+        
+        ];
 
         Renderer::render('funcionesroles/funcionesroles_list', $viewData);
     }

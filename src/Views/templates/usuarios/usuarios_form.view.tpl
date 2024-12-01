@@ -79,9 +79,22 @@
         {{endif ~userfching_enable}}
 
         <div class="row col-6 offset-3">
-            <label class="col-4" for="userest">Estado del Usuario</label>
-            <input class="col-8" type="text" name="userest" id="userest" value="{{userest}}" {{~readonly}}>
-        </div>
+    <label class="col-4">Estado del Usuario</label>
+    <div class="col-8">
+        <label>
+            <input type="radio" name="userest" value="ACT" {{if userest == 'ACT'}}checked{{/if}} {{~readonly}}> Activo
+        </label>
+        <label>
+            <input type="radio" name="userest" value="INA" {{if userest == 'INA'}}checked{{/if}} {{~readonly}}> Inactivo
+        </label>
+        <label>
+            <input type="radio" name="userest" value="BLQ" {{if userest == 'BLQ'}}checked{{/if}} {{~readonly}}> Bloqueado
+        </label>
+        <label>
+            <input type="radio" name="userest" value="SUS" {{if userest == 'SUS'}}checked{{/if}} {{~readonly}}> Suspendido
+        </label>
+    </div>
+</div>
 
         {{if ~useractcod_enable}}
         <div class="row col-6 offset-3">

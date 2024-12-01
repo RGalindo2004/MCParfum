@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="public/css_src/home.less"/>
+
 <h1>Ofertas del Día</h1>
     <div class="product-list">
         {{foreach productsOnSale}}

@@ -6,7 +6,7 @@
         {{with funcionRol}}
         <div class="row col-6 offset-3">
             <label class="col-4" for="rolescod">Código de Rol</label>
-            <input class="col-8" type="text" name="rolescod" id="rolescod" value="{{rolescod}}" {{~readonly_rolescod}}>
+            <input class="col-8" type="text" name="rolescod" id="rolescod" value="{{rolescod}}" {{~readonly}}>
             {{if ~rolescod_haserror}}
             <div class="error">
                 <ul>
@@ -20,7 +20,7 @@
 
         <div class="row col-6 offset-3">
             <label class="col-4" for="fncod">Código de Función</label>
-            <input class="col-8" type="text" name="fncod" id="fncod" value="{{fncod}}" {{~readonly_fncod}}>
+            <input class="col-8" type="text" name="fncod" id="fncod" value="{{fncod}}" {{~readonly}}>
             {{if ~fncod_haserror}}
             <div class="error">
                 <ul>

@@ -51,10 +51,8 @@
                 <th>Tipo de usuario</th>
                 {{endif usertipo_enable}}
 
-                {{if INS_enable}}
-                <th><a href="index.php?page=Usuarios-UsuariosForm&mode=INS"><i class="fas fa-plus"></i></th>
-                {{endif INS_enable}}
-                
+                <th><a href="index.php?page=Usuarios-UsuariosForm&mode=INS">
+                    {{if INS_enable}}<i class="fas fa-plus"></i>{{endif INS_enable}}</th>
             </tr>
         </thead>
 

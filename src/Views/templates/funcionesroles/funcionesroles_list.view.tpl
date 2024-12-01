@@ -14,7 +14,9 @@
                 <th>Código de Función</th>
                 <th>Estado</th>
                 <th>Expiración</th>
-                <th><a href="index.php?page=FuncionesRoles-FuncionesRolesForm&mode=INS"><i class="fas fa-plus"></i></a></th>
+                <th><a href="index.php?page=FuncionesRoles-FuncionesRolesForm&mode=INS">
+                    {{if ~INS_enable}}<i class="fas fa-plus"></i>{{endif ~INS_enable}}
+                    </a></th>
             </tr>
         </thead>
 
@@ -26,8 +28,16 @@
                 <td>{{fnrolest}}</td>
                 <td>{{fnexp}}</td>
                 <td>
+                    {{if ~UPD_enable}}
                     <a href="index.php?page=FuncionesRoles-FuncionesRolesForm&mode=UPD&rolescod={{rolescod}}&fncod={{fncod}}"><i class="fas fa-edit"></i></a>
+                    {{endif ~UPD_enable}}
+
+                    {{if ~DEL_enable}}
                     <a href="index.php?page=FuncionesRoles-FuncionesRolesForm&mode=DEL&rolescod={{rolescod}}&fncod={{fncod}}"><i class="fas fa-trash"></i></a>
+                    {{endif ~DEL_enable}}
+
+                    <a href="index.php?page=FuncionesRoles-FuncionesRolesForm&mode=DSP&rolescod={{rolescod}}&fncod={{fncod}}"><i class="fas fa-eye"></i></a>
+
                 </td>
             </tr>
             {{endfor funcionesRoles}}

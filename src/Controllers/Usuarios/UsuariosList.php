@@ -23,7 +23,9 @@ class UsuariosList extends PrivateController
         $estadosUserArr =
         [
             "ACT" => "Activo",
-            "DES" => "Desactivo"
+            "INA" => "Inactivo",
+            "BLQ" => "Bloqueado",
+            "SUS" => "Suspendido"
         ];
 
         $usuarioTipoArr =
