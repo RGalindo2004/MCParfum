@@ -36,7 +36,7 @@
         <h2>{{productName}}</h2>
         <p>{{productDescription}}</p>
         <span class="price">{{productPrice}}</span>
-        <a href="index.php?page=Carretilla-AddProducto&productid={{productId}}&productPrice={{productPrice}}">
+        <a href="index.php?page=Carretilla-AddProducto&productid={{productId}}&productPrice={{productPrice}}&productName={{productName}}">
             <button class="add-to-cart">Agregar al Carrito</button>
         </a>
     </div>

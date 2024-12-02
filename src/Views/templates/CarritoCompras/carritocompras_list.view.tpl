@@ -13,7 +13,8 @@
             <tr>
                 <th>Código de Carrito</th>
                 <th>Código Anónimo</th>
-                <th>Producto</th>
+                <th>Código de Producto</th>
+                <th>Nombre del Producto</th>
                 <th>Cantidad</th>
                 <th>Precio</th>
                 <th>Fecha de Compra</th>
@@ -27,6 +28,7 @@
                 <td>{{codcarretilla}}</td>
                 <td>{{anoncod}}</td>
                 <td>{{productId}}</td>
+                <td>{{productName}}</td>
                 <td>{{crrctd}}</td>
                 <td>{{productPrice}}</td>
                 <td>{{crrfching}}</td>
