@@ -19,8 +19,9 @@ class AddProducto extends PublicController {
         
         $this->productid = $_GET ["productid"];
         $this->productPrice = $_GET ["productPrice"];
+        
         /*echo("Estoy en AddPoroductos".$this->productid);*/
         $result= CartDao:: AddProductoCartAnon($_SERVER['REMOTE_ADDR'],$this->productid,"1", $this->productPrice);
-        \Utilities\Site::redirectTo("index.php?page=HomeController");
+        Site::redirectToWithMsg("index.php?page=HomeController", "Producto agregado satifactoriamente");
     }
 }

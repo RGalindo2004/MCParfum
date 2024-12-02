@@ -26,6 +26,7 @@
     </label>
     <h1>{{SITE_TITLE}}</h1>
     <span class="username">Anónimo<a href="index.php?page=Sec_Login"><i class="fas fa-sign-in-alt"></i></a></span>
+
     <nav id="menu">
       <ul>
         <li><a href="index.php?page={{PUBLIC_DEFAULT_CONTROLLER}}"><i class="fas fa-home"></i>&nbsp;Inicio</a></li>
