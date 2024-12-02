@@ -12,16 +12,15 @@ use Dao\Cart\Cart as CartDao;
 use Utilities\Validators;
 
 class AddProducto extends PublicController {
-    private $productoId='';
+    private $productid='';
+    public $productPrice = '';
 
     public function run(): void{
         
-        $this->productoId = $_GET ["productoid"];
-        /*echo("Estoy en AddPoroductos".$this->productoId);*/
-        $result= CartDao:: AddProductoCartAnon($_SERVER['REMOTE_ADDR'],$this->productoId,"1","5");
+        $this->productid = $_GET ["productid"];
+        $this->productPrice = $_GET ["productPrice"];
+        /*echo("Estoy en AddPoroductos".$this->productid);*/
+        $result= CartDao:: AddProductoCartAnon($_SERVER['REMOTE_ADDR'],$this->productid,"1", $this->productPrice);
         \Utilities\Site::redirectTo("index.php?page=HomeController");
-
-
-
     }
 }

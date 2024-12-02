@@ -1,11 +1,11 @@
-Create TABLE
-    `carretillaanon` (
-        `anoncod` varchar(128) NOT NULL,
-        `productId` bigint(18) NOT NULL,
-        `crrctd` int(5) NOT NULL,
-        `crrprc` decimal(12, 2) NOT NULL,
-        `crrfching` datetime NOT NULL,
-        PRIMARY KEY (`anoncod`, `productId`)
-        
-        
-    );
+CREATE TABLE `carretillaanon` (
+    `codcarretilla` BIGINT AUTO_INCREMENT PRIMARY KEY,
+    `anoncod` VARCHAR(128) NOT NULL,
+    `productId` INT(11) NOT NULL,
+    `crrctd` INT(5) NOT NULL,
+    `productPrice` DECIMAL(10,2) NOT NULL,
+    `crrfching` DATETIME NOT NULL,
+    FOREIGN KEY (`productId`) REFERENCES `products` (`productId`)
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

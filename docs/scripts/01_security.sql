@@ -32,7 +32,8 @@ CREATE TABLE
 CREATE TABLE
     `roles_usuarios` (
         `usercod` bigint(10) NOT NULL,
-        `rolescod` varchar(128) NOT NULL,
+        `rolescod` varchar(128) 
+        NOT NULL,
         `roleuserest` char(3) DEFAULT NULL,
         `roleuserfch` datetime DEFAULT NULL,
         `roleuserexp` datetime DEFAULT NULL,

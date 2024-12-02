@@ -42,20 +42,8 @@
             <h2>{{productName}}</h2>
             <p>{{productDescription}}</p>
             <span class="price">{{productPrice}}</span>
-              <a href="index.php?page=Carretilla-AddProducto&productoid={{productId}}">Hola</a>
+              <a href="index.php?page=Carretilla-AddProducto&productid={{productId}}&productPrice={{productPrice}}"><button class="add-to-cart">Agregar al Carrito</button></a>
         </div>
      
-    {{endfor productsNew}}
-  
-</div>
-<div class="product-list">
-    {{foreach productsNew}}
-    <div class="product" data-productId="{{productId}}">
-        <img src="{{productImgUrl}}" alt="{{productName}}">
-        <h2>{{productName}}</h2>
-        <p>{{productDescription}}</p>
-        <span class="price">{{productPrice}}</span>
-        <button class="add-to-cart">Agregar al Carrito</button>
-    </div>
     {{endfor productsNew}}
 </div>

@@ -103,16 +103,19 @@ class Cart extends \Dao\Table
 
     /*Parte que va la carretilla*/
 
-    public static function AddProductoCartAnon($anoncod,$produdId,$crrctd,$crrprc){
+    public static function AddProductoCartAnon($anoncod, $produdId, $crrctd, $productPrice) {
+        $sql = "INSERT INTO carretillaanon (anoncod, productId, crrctd, productPrice, crrfching) 
+                VALUES (:anoncod, :productId, :crrctd, :productPrice, NOW())";
         
-        $sql= "Insert into carretillaanon (anoncod, productId, crrctd, crrprc, crrfching) ValueS (:anoncod, :producId,:crrctd,:crrprc,now()) ";  
-        $result= self:: executeNonQuery($sql, array ("anoncod"=> $anoncod, "producId" =>$produdId, "crrctd"=>$crrctd, "crrprc"=>$crrprc ));
+        $result = self::executeNonQuery(
+            $sql, 
+            array(
+                "anoncod" => $anoncod,
+                "productId" => $produdId,
+                "crrctd" => $crrctd,
+                "productPrice" => $productPrice
+            )
+        );
         return $result;
     }
-
-    
-
-
-
-
 }
