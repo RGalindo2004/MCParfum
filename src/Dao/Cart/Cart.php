@@ -100,4 +100,19 @@ class Cart extends \Dao\Table
         $productosDisponibles = self::obtenerRegistros($sqlAllProductosActivos, array("productId" => $productId));
         return $productosDisponibles;
     }
+
+    /*Parte que va la carretilla*/
+
+    public static function AddProductoCartAnon($anoncod,$produdId,$crrctd,$crrprc){
+        
+        $sql= "Insert into carretillaanon (anoncod, productId, crrctd, crrprc, crrfching) ValueS (:anoncod, :producId,:crrctd,:crrprc,now()) ";  
+        $result= self:: executeNonQuery($sql, array ("anoncod"=> $anoncod, "producId" =>$produdId, "crrctd"=>$crrctd, "crrprc"=>$crrprc ));
+        return $result;
+    }
+
+    
+
+
+
+
 }
