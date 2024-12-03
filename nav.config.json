@@ -33,6 +33,11 @@
       "nav_label":"<i class=\"fas fa-tools\"></i>&nbsp;Funciones por roles"
     },
     {
+      "id": "Menu_RolesUsuarios",
+      "nav_url": "index.php?page=RolesUsuarios-RolesUsuariosList",
+      "nav_label":"<i class=\"fas fa-hammer\"></i>&nbsp;Roles por usuarios"
+    },
+    {
       "id":"Menu_PaymentCheckout",
       "nav_url": "index.php?page=Checkout_Checkout",
       "nav_label": "Carretilla de Compra"

@@ -36,7 +36,6 @@
       </ul>
     </nav>
     {{with login}}
-    <span class="username">Carrito de compras<a href="index.php?page=CarritoCompras-CarritoComprasList"><i class="fas fa-shopping-cart"></i></a></span>
     <span class="username">{{userName}} <a href="index.php?page=sec_logout"><i class="fas fa-sign-out-alt"></i></a></span>
     {{endwith login}}
   </header>
