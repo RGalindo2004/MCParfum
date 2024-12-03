@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="public/css_src/home.less" />
+<link rel="stylesheet" href="public/css/btncarrito.css" />
 
 <h1>Ofertas del Día</h1>
 <div class="product-list">
@@ -41,4 +42,13 @@
         </a>
     </div>
     {{endfor productsNew}}
+    <div class="carritobtn">
+        <a href="index.php?page=CarritoCompras-CarritoComprasList"><i class="fas fa-shopping-cart"
+                id="carritoicono"></i></a>
+        <span class="btn-text">
+            <div class="texto-animado">
+                Carrito de compras
+            </div>
+        </span>
+    </div>
 </div>

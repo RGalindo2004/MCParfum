@@ -31,6 +31,9 @@
         <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorPswd}}</div>
         {{endif errorPswd}}
       </div>
+      <div>
+        <a href="index.php?page=Sec_Login"><u>¿Ya tienes cuenta? ¡Inicia Sesión!</u></a>
+      </div>
       <div class="row right flex-end px-4">
         <button class="primary" id="btnSignin" type="submit">Crear Cuenta</button>
       </div>

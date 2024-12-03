@@ -27,6 +27,9 @@
         {{generalError}}
       </div>
     {{endif generalError}}
+    <div>
+      <a href="index.php?page=Sec_Register"><u>¿No tienes cuenta? ¡Regístrate!</u></a>
+    </div>
     <div class="row right flex-end px-4">
       <button class="primary" id="btnLogin" type="submit">Iniciar Sesión</button>
     </div>
