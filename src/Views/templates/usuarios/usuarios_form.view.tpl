@@ -68,9 +68,29 @@
 
 
         <div class="row col-6 offset-3">
-            <label class="col-4" for="userpswdest">Estado de la Contraseña</label>
-            <input class="col-8" type="text" name="userpswdest" id="userpswdest" value="{{userpswdest}}" {{~readonly}}>
-        </div>
+    <label class="col-4" for="roleuserest">Estado</label>
+    <div class="col-8">
+        <label for="roleuserest_ACT">
+            <input type="radio" id="roleuserest_ACT" name="roleuserest" value="ACT">
+            ACTIVO
+        </label>
+
+        <label for="roleuserest_INA">
+            <input type="radio" id="roleuserest_INA" name="roleuserest" value="INA">
+            INACTIVO
+        </label>
+
+        <label for="roleuserest_BLQ">
+            <input type="radio" id="roleuserest_BLQ" name="roleuserest" value="BLQ">
+            BLOQUEADO
+        </label>
+
+        <label for="roleuserest_SUS">
+            <input type="radio" id="roleuserest_SUS" name="roleuserest" value="SUS">
+            SUSPENDIDO
+        </label>
+    </div>
+</div>
 
         {{if ~userfching_enable}}
         <div class="row col-6 offset-3">
@@ -82,7 +102,20 @@
 
         <div class="row col-6 offset-3">
             <label class="col-4">Estado del Usuario</label>
-            <input class="col-8" type="text" name="userest" id="userest" value="{{userest}}" {{~readonly}}>
+            <div class="col-8">
+                <label for="userest_ACT">
+                    <input type="radio" id="userest_ACT" name="userest" value="ACT"> ACTIVO
+                </label>
+                <label for="userest_INA">
+                    <input type="radio" id="userest_INA" name="userest" value="INA"> INACTIVO
+                </label>
+                <label for="userest_BLQ">
+                    <input type="radio" id="userest_BLQ" name="userest" value="BLQ"> BLOQUEADO
+                </label>
+                <label for="userest_SUS">
+                    <input type="radio" id="userest_SUS" name="userest" value="SUS"> SUSPENDIDO
+                </label>
+            </div>
         </div>
 
         {{if ~useractcod_enable}}

@@ -47,9 +47,9 @@ class Roles extends Table
     public static function actualizarRoles($roles)
     {
       $sqlstr = "UPDATE roles SET
-      rolesdsc = :rolesdsc,  
-      rolesest = :rolesest
-      WHERE rolescod = :rolescod;";
+        rolesdsc = :rolesdsc,
+        rolesest = :rolesest
+        WHERE rolescod = :rolescod";
 
       return self::executeNonQuery($sqlstr, $roles);
     }

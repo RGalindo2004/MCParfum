@@ -24,12 +24,14 @@ class RolesUsuarios extends Table
             usercod,
             rolescod,
             roleuserest,
-            roleuserexp
+            roleuserexp,
+            roleuserfch
         ) VALUES (
             :usercod,
             :rolescod,
             :roleuserest,
-            :roleuserexp
+            :roleuserexp,
+            :roleuserfch
         );';
 
         return self::executeNonQuery($sqlstr, $rolUsuario);
@@ -38,7 +40,9 @@ class RolesUsuarios extends Table
     public static function actualizarRolUsuario($rolUsuario)
     {
         $sqlstr = 'UPDATE roles_usuarios SET
+            rolescod = :rolescod,
             roleuserest = :roleuserest,
+            roleuserfch = :roleuserfch,
             roleuserexp = :roleuserexp
         WHERE usercod = :usercod AND rolescod = :rolescod;';
 

@@ -13,7 +13,8 @@
                 <th>Código de Usuario</th>
                 <th>Código de Rol</th>
                 <th>Estado</th>
-                <th>Expiración</th>
+                <th>Fecha de cración</th>
+                <th>Expiración del usuario</th>
                 <th>
                     <a href="index.php?page=RolesUsuarios-RolesUsuariosForm&mode=INS">
                         <i class="fas fa-plus"></i>
@@ -28,6 +29,7 @@
                 <td>{{usercod}}</td>
                 <td>{{rolescod}}</td>
                 <td>{{roleuserest}}</td>
+                <td>{{roleuserfch}}</td>
                 <td>{{roleuserexp}}</td>
                 <td>
                     <a href="index.php?page=RolesUsuarios-RolesUsuariosForm&mode=UPD&usercod={{usercod}}&rolescod={{rolescod}}"><i class="fas fa-edit"></i></a>

@@ -35,8 +35,24 @@
         </div>
         
         <div class="row col-6 offset-3">
-            <label class="col-4" for="fnest">Estado de Función</label>
-            <input class="col-8" type="text" name="fnest" id="fnest" value="{{fnest}}" {{~readonly}}>
+    <label class="col-4" for="fnest">Estado de Función</label>
+    <div class="col-8">
+        <label for="fnest_ACT"><input type="radio" id="fnest_ACT" name="fnest" value="ACT">
+            ACTIVO
+        </label>
+        
+        <label for="fnest_INA"><input type="radio" id="fnest_INA" name="fnest" value="INA">
+            INACTIVO
+        </label>
+        
+        <label for="fnest_BLQ"><input type="radio" id="fnest_BLQ" name="fnest" value="BLQ">
+            BLOQUEADO
+        </label>
+        
+        <label for="fnest_SUS"><input type="radio" id="fnest_SUS" name="fnest" value="SUS">
+            SUSPENDIDO
+        </label>
+    </div>
             {{if ~fnest_haserror}}
             <div class="error">
                 <ul>

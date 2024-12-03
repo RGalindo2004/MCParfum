@@ -1,8 +1,9 @@
-<link rel="stylesheet" href="public/css_src/home.less"/>
+<link rel="stylesheet" href="public/css_src/home.less" />
 
 <h1>{{modes_dsc}}</h1>
 <section class="grid">
-    <form action="index.php?page=FuncionesRoles-FuncionesRolesForm&mode={{mode}}&rolescod={{rolescod}}&fncod={{fncod}}" method="POST" class="row">
+    <form action="index.php?page=FuncionesRoles-FuncionesRolesForm&mode={{mode}}&rolescod={{rolescod}}&fncod={{fncod}}"
+        method="POST" class="row">
         {{with funcionRol}}
         <div class="row col-6 offset-3">
             <label class="col-4" for="rolescod">Código de Rol</label>
@@ -34,7 +35,24 @@
 
         <div class="row col-6 offset-3">
             <label class="col-4" for="fnrolest">Estado</label>
-            <input class="col-8" type="text" name="fnrolest" id="fnrolest" value="{{fnrolest}}" {{~readonly}}>
+            <div class="col-8">
+                <label for="fnrolest_ACT">
+                    <input type="radio" id="fnrolest_ACT" name="fnrolest" value="ACT">
+                    ACTIVO
+                </label>
+                <label for="fnrolest_INA">
+                    <input type="radio" id="fnrolest_INA" name="fnrolest" value="INA">
+                    INACTIVO
+                </label>
+                <label for="fnrolest_BLQ">
+                    <input type="radio" id="fnrolest_BLQ" name="fnrolest" value="BLQ">
+                    BLOQUEADO
+                </label>
+                <label for="fnrolest_SUS">
+                    <input type="radio" id="fnrolest_SUS" name="fnrolest" value="SUS">
+                    SUSPENDIDO
+                </label>
+            </div>
         </div>
 
         <div class="row col-6 offset-3">

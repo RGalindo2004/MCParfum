@@ -12,7 +12,7 @@ use Utilities\Validators;
 class UsuariosForm extends PrivateController
 {
     private $viewData = [];
-    
+
     private $modeDscArr =
     [
         "INS" => "Crear nuevo usuario",
@@ -27,15 +27,11 @@ class UsuariosForm extends PrivateController
 
     private $xssToken = '';
 
-    private function addError($error, $context='global')
+    private function addError($error, $context = 'global')
     {
-        if(isset($this->errors[$context]))
-        {
-            $this->errors[$context] [] = $error;
-        }
-
-        else
-        {
+        if (isset($this->errors[$context])) {
+            $this->errors[$context][] = $error;
+        } else {
             $this->errors[$context] = [$error];
         }
     }
@@ -57,16 +53,27 @@ class UsuariosForm extends PrivateController
 
     public function run(): void
     {
+        $mode = $_GET['mode'] ?? 'INS';
+        if ($mode == 'UPD') {
+            $usercod = $_GET['usercod'];
+            $usuario = Usuarios::ObtenerUsuariosPorID($usercod);
+            $userest = $usuario['userest'];  // Estado del usuario
+        } else {
+            // Si estamos en modo de inserción, no hay usuario
+            $userest = 'ACT'; // Definir un valor por defecto (ACTIVO)
+        }
+
         $this->inicializarForm();
 
         if ($this->isPostBack()) {
             $this->cargarDatosDelFormulario();
-            
-            if($this->validarDatos())
-            {
+
+            if ($this->validarDatos()) {
                 $this->procesarAccion();
             }
         }
+
+
 
         $this->viewData["useremail_enable"] = $this->isFeatureAutorized('useremail_enable');
         $this->viewData["userpswd_enable"] = $this->isFeatureAutorized('userpswd_enable');
@@ -77,8 +84,26 @@ class UsuariosForm extends PrivateController
         $this->viewData["useractcod_enable"] = $this->isFeatureAutorized('useractcod_enable');
         $this->viewData["userpswdchg_enable"] = $this->isFeatureAutorized('userpswdchg_enable');
         $this->viewData["usertipo_enable"] = $this->isFeatureAutorized('usertipo_enable');
-        
+
         $this->generarViewData();
+
+        $mode = $_GET['mode'] ?? 'INS';
+
+        $usercod = $_GET['usercod'];
+        $usuario = Usuarios::ObtenerUsuariosPorID($usercod);
+        $userest = $usuario['userest'];
+        $userpswdest = $usuario['userpswdest'];
+
+
+        $viewData = [
+            "usercod" => $usuario['usercod'] ?? '',
+            "username" => $usuario['username'] ?? '',
+            "useremail" => $usuario['useremail'] ?? '',
+            "userest" => $userest,
+            "userpswdest" => $userpswdest,
+        ];
+
+
         Renderer::render('usuarios/usuarios_form', $this->viewData);
     }
 
@@ -87,14 +112,11 @@ class UsuariosForm extends PrivateController
         if (isset($_GET["mode"]) && isset($this->modeDscArr)) {
             $this->mode = $_GET["mode"];
 
-            if($this->mode !=='DSP')
-            {
-                if(!$this->isFeatureAutorized("usuarios_".$this->mode."_enable"))
-                {
+            if ($this->mode !== 'DSP') {
+                if (!$this->isFeatureAutorized("usuarios_" . $this->mode . "_enable")) {
                     Site::redirectToWithMsg("index.php?page=Usuarios-UsuariosList", "Algo sucedió mal. Intente de nuevo.");
                 }
             }
-
         } else {
             Site::redirectToWithMsg("index.php?page=Usuarios-UsuariosList", "Algo sucedió mal. Intente de nuevo.");
             die();
@@ -127,58 +149,49 @@ class UsuariosForm extends PrivateController
         $this->usuario["usertipo"] = $_POST["usertipo"];
 
         $this->xssToken = $_POST["xssToken"];
-        
     }
 
     private function validarDatos()
     {
-        if(!$this->validarAntiXSSToken())
-        {
+        if (!$this->validarAntiXSSToken()) {
             \Utilities\Site::redirectToWithMsg("index.php?page=Usuarios-UsuariosList", "Error al procesar la solicitud");
         }
 
-        if(Validators::IsEmpty($this->usuario["username"]))
-        {
+        if (Validators::IsEmpty($this->usuario["username"])) {
             $this->addError("El usuario no puede ir vacío", "username");
         }
 
-        if(Validators::IsEmpty($this->usuario["useremail"]))
-        {
+        if (Validators::IsEmpty($this->usuario["useremail"])) {
             $this->addError("El correo no puede ir vacío", "useremail");
         }
 
-        if(Validators::IsEmpty($this->usuario["userpswd"]))
-        {
+        if (Validators::IsEmpty($this->usuario["userpswd"])) {
             $this->addError("La contraseña no puede ir vacía", "userpswd");
         }
 
-        return count ($this->errors) === 0;
+        return count($this->errors) === 0;
     }
 
     private function procesarAccion()
     {
-        switch($this->mode)
-        {
+        switch ($this->mode) {
             case 'INS':
                 $result = Usuarios::agregarUsuario($this->usuario);
-                if($result)
-                {
+                if ($result) {
                     Site::redirectToWithMsg("index.php?page=Usuarios-UsuariosList", "Usuario registrado satifactoriamente");
                 }
                 break;
 
             case 'UPD':
                 $result = Usuarios::actualizarUsuario($this->usuario);
-                if($result)
-                {
+                if ($result) {
                     Site::redirectToWithMsg("index.php?page=Usuarios-UsuariosList", "Usuario actualizado satifactoriamente");
                 }
                 break;
 
             case 'DEL':
                 $result = Usuarios::eliminarUsuario($this->usuario['usercod']);
-                if($result)
-                {
+                if ($result) {
                     Site::redirectToWithMsg("index.php?page=Usuarios-UsuariosList", "Usuario inhabilitado satifactoriamente");
                 }
                 break;
@@ -187,16 +200,14 @@ class UsuariosForm extends PrivateController
 
     private function generateAntiXSSToken()
     {
-        $_SESSION["Usuarios_Form_XSST"] = hash("sha256", time()."USUARIO_FORM");
+        $_SESSION["Usuarios_Form_XSST"] = hash("sha256", time() . "USUARIO_FORM");
         $this->xssToken = $_SESSION["Usuarios_Form_XSST"];
     }
 
     private function validarAntiXSSToken()
     {
-        if(isset($_SESSION["Usuarios_Form_XSST"]))
-        {
-            if($this->xssToken === $_SESSION["Usuarios_Form_XSST"])
-            {
+        if (isset($_SESSION["Usuarios_Form_XSST"])) {
+            if ($this->xssToken === $_SESSION["Usuarios_Form_XSST"]) {
                 return true;
             }
 
@@ -218,12 +229,11 @@ class UsuariosForm extends PrivateController
 
         $this->viewData["readonly"] =
             ($this->viewData["mode"] === 'DEL' ||
-             $this->viewData["mode"] === 'DSP') ? 'readonly': '';
+                $this->viewData["mode"] === 'DSP') ? 'readonly' : '';
 
-        foreach($this->errors as $context=>$errores)
-        {
-            $this->viewData[$context.'_error'] = $errores;
-            $this->viewData[$context.'_haserror'] = count($errores) > 0;
+        foreach ($this->errors as $context => $errores) {
+            $this->viewData[$context . '_error'] = $errores;
+            $this->viewData[$context . '_haserror'] = count($errores) > 0;
         }
 
         $this->viewData["showConfirm"] = ($this->viewData["mode"] !== 'DSP');

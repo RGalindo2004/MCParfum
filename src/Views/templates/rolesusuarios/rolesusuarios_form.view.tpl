@@ -1,8 +1,10 @@
-<link rel="stylesheet" href="public/css_src/home.less"/>
+<link rel="stylesheet" href="public/css_src/home.less" />
 
 <h1>{{modes_dsc}}</h1>
 <section class="grid">
-    <form action="index.php?page=RolesUsuarios-RolesUsuariosForm&mode={{mode}}&usercod={{usercod}}&rolescod={{rolescod}}" method="POST" class="row">
+    <form
+        action="index.php?page=RolesUsuarios-RolesUsuariosForm&mode={{mode}}&usercod={{usercod}}&rolescod={{rolescod}}"
+        method="POST" class="row">
         {{with rolUsuario}}
         <div class="row col-6 offset-3">
             <label class="col-4" for="usercod">Código de Usuario</label>
@@ -38,15 +40,22 @@
         </div>
 
         <div class="row col-6 offset-3">
-            <label class="col-4" for="roleuserexp">Expiración</label>
-            <input class="col-8" type="datetime-local" name="roleuserexp" id="roleuserexp" value="{{roleuserexp}}" {{~readonly}}>
+            <label class="col-4" for="roleuserfch">Fecha de Creación</label>
+            <input class="col-8" type="datetime-local" name="roleuserfch" id="roleuserfch" value="{{roleuserfch}}"
+                {{~readonly}}>
+        </div>
+
+        <div class="row col-6 offset-3">
+            <label class="col-4" for="roleuserexp">Expiración del usuario</label>
+            <input class="col-8" type="datetime-local" name="roleuserexp" id="roleuserexp" value="{{roleuserexp}}"
+                {{~readonly}}>
         </div>
 
         <div class="row col-6 offset-3 flex-end">
             {{if ~showConfirm}}
             <p>
                 <button type="submit" class="primary">Confirmar</button> &nbsp;
-            {{endif ~showConfirm}}
+                {{endif ~showConfirm}}
                 <button id="btnCancelar" class="btn">Cancelar</button>
             </p>
         </div>

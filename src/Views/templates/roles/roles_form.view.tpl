@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="public/css_src/home.less"/>
+<link rel="stylesheet" href="public/css_src/home.less" />
 
 <h1>{{modes_dsc}}</h1>
 <section class="grid">
@@ -34,7 +34,26 @@
         </div>
         <div class="row col-6 offset-3">
             <label class="col-4" for="rolesest">Estado del Rol</label>
-            <input class="col-8" type="text" name="rolesest" id="rolesest" value="{{rolesest}}" {{~readonly}}>
+            <div class="col-8">
+                <label for="rolesest_ACT">
+                    <input type="radio" id="rolesest_ACT" name="rolesest" value="ACT">
+                    ACTIVO
+                </label>
+                <label for="rolesest_INA">
+                    <input type="radio" id="rolesest_INA" name="rolesest" value="INA">
+                    INACTIVO
+                </label>
+
+                <label for="rolesest_BLQ">
+                    <input type="radio" id="rolesest_BLQ" name="rolesest" value="BLQ">
+                    BLOQUEADO
+                </label>
+
+                <label for="rolesest_SUS">
+                    <input type="radio" id="rolesest_SUS" name="rolesest" value="SUS">
+                    SUSPENDIDO
+                </label>
+            </div>
             {{if ~rolesest_haserror}}
             <div class="error">
                 <ul>

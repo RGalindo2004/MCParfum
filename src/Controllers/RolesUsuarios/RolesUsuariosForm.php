@@ -32,7 +32,8 @@ class RolesUsuariosForm extends PrivateController
     private $rolUsuario = [
         "usercod" => '',
         "rolescod" => '',
-        "roleuserest" => 'ACT',
+        "roleuserest" => 'ACT',  // Valor predeterminado
+        "rolesuserfch" => '',
         "roleuserexp" => '',
     ];
 
@@ -47,6 +48,9 @@ class RolesUsuariosForm extends PrivateController
                 $this->procesarAccion();
             }
         }
+
+        // Corrección: Verifica que roleuserest tenga un valor antes de asignarlo
+        $this->rolUsuario["roleuserest"] = isset($_POST["roleuserest"]) ? $_POST["roleuserest"] : 'ACT';
 
         $this->generarViewData();
         Renderer::render('rolesusuarios/rolesusuarios_form', $this->viewData);
@@ -78,6 +82,7 @@ class RolesUsuariosForm extends PrivateController
         $this->rolUsuario["usercod"] = $_POST["usercod"];
         $this->rolUsuario["rolescod"] = $_POST["rolescod"];
         $this->rolUsuario["roleuserest"] = $_POST["roleuserest"];
+        $this->rolUsuario["roleuserfch"] = $_POST["roleuserfch"];
         $this->rolUsuario["roleuserexp"] = $_POST["roleuserexp"];
     }
 
@@ -89,6 +94,10 @@ class RolesUsuariosForm extends PrivateController
 
         if (Validators::IsEmpty($this->rolUsuario["rolescod"])) {
             $this->addError("El código del rol no puede ir vacío", "rolescod");
+        }
+
+        if (Validators::IsEmpty($this->rolUsuario["roleuserest"])) {
+            $this->addError("El estado del usuario no puede ir vacío", "roleuserest");
         }
 
         return count($this->errors) === 0;
