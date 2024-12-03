@@ -18,7 +18,7 @@ class UsuariosForm extends PrivateController
         "INS" => "Crear nuevo usuario",
         "UPD" => "Editando a %s (%s)",
         "DSP" => "Detalle de %s (%s)",
-        "DEL" => "Eliminando a %s (%s)",
+        "DEL" => "Inhabilitando a %s (%s)",
     ];
 
     private $mode = '';
@@ -127,6 +127,7 @@ class UsuariosForm extends PrivateController
         $this->usuario["usertipo"] = $_POST["usertipo"];
 
         $this->xssToken = $_POST["xssToken"];
+        
     }
 
     private function validarDatos()
@@ -178,7 +179,7 @@ class UsuariosForm extends PrivateController
                 $result = Usuarios::eliminarUsuario($this->usuario['usercod']);
                 if($result)
                 {
-                    Site::redirectToWithMsg("index.php?page=Usuarios-UsuariosList", "Usuario eliminado satifactoriamente");
+                    Site::redirectToWithMsg("index.php?page=Usuarios-UsuariosList", "Usuario inhabilitado satifactoriamente");
                 }
                 break;
         }

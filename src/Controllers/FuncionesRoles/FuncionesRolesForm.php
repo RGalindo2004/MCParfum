@@ -132,6 +132,8 @@ class FuncionesRolesForm extends PrivateController
 
         $this->viewData["readonly_fncod"] = ($this->mode !== 'INS') ? 'readonly' : '';
         $this->viewData["readonly"] = ($this->mode === 'DEL' || $this->mode === 'DSP') ? 'readonly' : '';
+        
+        $this->viewData["showConfirm"] = ($this->viewData["mode"] !== 'DSP');
 
         $this->viewData["funcionRol"] = $this->funcionRol;
         foreach ($this->errors as $context => $errores) {

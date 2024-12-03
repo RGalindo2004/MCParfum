@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="public/css_src/home.less"/>
 
-<h1>Listado de Roles</h1>
+<h1>Listado de roles</h1>
 <section class="WWList">
     <table>
         <style>

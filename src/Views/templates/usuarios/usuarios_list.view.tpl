@@ -1,6 +1,28 @@
 <link rel="stylesheet" href="public/css_src/home.less"/>
 
-<h1>Listado de Usuarios</h1>
+<link rel="stylesheet" href="public/css_src/home.less" />
+
+<h1>Lista de usuarios</h1>
+<section class="grid">
+  <div class="row">
+    <form class="col-12 col-m-8" action="index.php" method="get">
+      <div class="flex align-center">
+        <div class="col-8 row">
+          <input type="hidden" name="page" value="Usuarios-UsuariosList" />
+          <label class="col-3" for="status">Estado</label>
+          <select class="col-9" name="status" id="status">
+            <option value="EMP" {{status_EMP}}>Todos</option>
+            <option value="ACT" {{status_ACT}}>Activo</option>
+            <option value="INA" {{status_INA}}>Inactivo</option>
+          </select>
+        </div>
+        <div class="col-4 align-end">
+          <button type="submit">Filtrar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
 <section class="WWList">
     <table>
         <style>
@@ -18,10 +40,6 @@
                 {{endif useremail_enable}}
 
                 <th>Nombre</th>
-
-                {{if userpswd_enable}}
-                <th>Contraseña</th>
-                {{endif userpswd_enable}}
 
                 {{if userfching_enable}}
                 <th>Fecha de creación</th>
@@ -66,10 +84,6 @@
                 {{endif ~useremail_enable}}
 
                 <td>{{username}}</td>
-
-                {{if ~userpswd_enable}}
-                <td>{{userpswd}}</td>
-                {{endif ~userpswd_enable}}
 
                 {{if ~userfching_enable}}
                 <td>{{userfching}}</td>

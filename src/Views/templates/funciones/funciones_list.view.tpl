@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="public/css_src/home.less"/>
 
-<h1>Listado de Funciones</h1>
+<h1>Listado de funciones</h1>
 <section class="WWList">
     <table>
         <style>

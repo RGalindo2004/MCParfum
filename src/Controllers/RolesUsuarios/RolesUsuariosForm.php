@@ -132,6 +132,8 @@ class RolesUsuariosForm extends PrivateController
         $this->viewData["readonly_rolescod"] = ($this->mode !== 'INS') ? 'readonly' : '';
         $this->viewData["readonly"] = ($this->mode === 'DEL' || $this->mode === 'DSP') ? 'readonly' : '';
 
+        $this->viewData["showConfirm"] = ($this->viewData["mode"] !== 'DSP');
+
         $this->viewData["rolUsuario"] = $this->rolUsuario;
         foreach ($this->errors as $context => $errores) {
             $this->viewData[$context . '_error'] = $errores;

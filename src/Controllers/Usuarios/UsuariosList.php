@@ -11,42 +11,44 @@ class UsuariosList extends PrivateController
 {
     public function run(): void
     {
-        $usuariosDao = Usuarios::ObtenerUsuarios();
+        $userStatusFilter = isset($_GET['status']) && !empty($_GET['status']) ? $_GET['status'] : 'EMP';
+
+        // Llama al DAO para obtener los usuarios filtrados
+        $usuariosDao = Usuarios::ObtenerUsuariosPorEstado($userStatusFilter);
+        
         $viewUsuarios = [];
 
-        $estadosPswArr =
-        [
+        $estadosPswArr = [
             "ACT" => "Activa",
             "DES" => "Desactiva"
         ];
 
-        $estadosUserArr =
-        [
+        $estadosUserArr = [
             "ACT" => "Activo",
             "INA" => "Inactivo",
             "BLQ" => "Bloqueado",
             "SUS" => "Suspendido"
         ];
 
-        $usuarioTipoArr =
-        [
+        $usuarioTipoArr = [
             "ADM" => "Administrador",
-            "PBL" => "Project Based Learning",
-            "INV" => "Invitado"
+            "SUP" => "Supervisor",
+            "CLI" => "Cliente"
         ];
 
-        foreach ($usuariosDao as $usuario)
-        {
+        foreach ($usuariosDao as $usuario) {
             $usuario["estadosPsw"] = $estadosPswArr[$usuario["userpswdest"]];
             $usuario["estadosUser"] = $estadosUserArr[$usuario["userest"]];
             $usuario["usuarioTipo"] = $usuarioTipoArr[$usuario["usertipo"]];
 
             $viewUsuarios[] = $usuario;
         }
-        $viewData =
-        [
-            "usuario" => $usuariosDao,
 
+        $viewData = [
+            "usuario" => $usuariosDao,
+            "status_EMP" => $userStatusFilter === "EMP" ? "selected" : "",
+            "status_ACT" => $userStatusFilter === "ACT" ? "selected" : "",
+            "status_INA" => $userStatusFilter === "INA" ? "selected" : "",
             "INS_enable" => $this->isFeatureAutorized('usuarios_INS_enable'),
             "UPD_enable" => $this->isFeatureAutorized('usuarios_UPD_enable'),
             "DEL_enable" => $this->isFeatureAutorized('usuarios_DEL_enable'),
