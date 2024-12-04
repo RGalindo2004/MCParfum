@@ -33,6 +33,6 @@
         <h3>Total: ${{total}}</h3>
     </div>
     <div><button type="submit" class="primary"><a href="index.php?page=Checkout-Checkout">Pagar</a></button> &nbsp;
-        <button id="btnCancelar" class="btn"><a href="index.php?page=HomeController">Cancelar</a></button>
+        <button id="btnCancelar" class="btn"><a href="index.php?page=HomeController">Volver</a></button>
     </div>
 </section>

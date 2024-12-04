@@ -9,7 +9,6 @@ use Dao\Cart\Cart as CartDao;
 
 class AddProducto extends PublicController
 {
-
     public function run(): void
     {
         $userId = Security::getUserId();
@@ -23,6 +22,12 @@ class AddProducto extends PublicController
         $crrctd = $_POST['quantity'] ?? 1;
 
         CartDao::AddProductoCartUser($userId, $productId, $crrctd, $productPrice, $productName);
+
+        $_SESSION['cart_items'][$productId] = [
+            'productName' => $productName,
+            'productPrice' => $productPrice,
+            'quantity' => $crrctd
+        ];
 
         Site::redirectToCartorBack("index.php?page=HomeController", "Producto agregado exitosamente.");
     }
