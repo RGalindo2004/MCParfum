@@ -5,18 +5,27 @@ namespace Controllers\Carretilla;
 use Controllers\PublicController;
 use Dao\Cart\Cart as CartDao;
 use Views\Renderer;
+use Utilities\Security;
 
 class ViewCarretilla extends PublicController
 {
     public function run(): void
     {
-        $usercod = $_GET['usercod'] ?? $_SERVER['REMOTE_ADDR'];
-        
-        $cartItems = CartDao::getProductosCarretillaUser($usercod);
+        $productId = isset($_GET['productid']) ? $_GET['productid'] : null;
+        $productPrice = isset($_GET['productPrice']) ? $_GET['productPrice'] : null;
+        $productName = isset($_GET['productName']) ? $_GET['productName'] : null;
 
-        $total = array_reduce($cartItems, function ($carry, $item) {
-            return $carry + ($item["crrctd"] * $item["productPrice"]);
-        }, 0);
+        if ($productId && $productPrice && $productName) {
+            CartDao::AddProductoCartUser($productId, $productPrice, $productName, Security::getUserId());
+        }
+
+        $userId = Security::getUserId();
+        $cartItems = CartDao::getProductosCarretillaUser($userId);
+
+        $total = 0;
+        foreach ($cartItems as $item) {
+            $total += $item["crrctd"] * $item["crrprc"];
+        }
 
         $viewData = [
             'cartItems' => $cartItems,
@@ -26,3 +35,4 @@ class ViewCarretilla extends PublicController
         Renderer::render('Carretilla/carretilla', $viewData);
     }
 }
+

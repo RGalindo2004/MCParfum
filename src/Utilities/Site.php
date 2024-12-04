@@ -41,6 +41,19 @@ class Site
         echo ' window.location.assign("' . $url . '");</script>';
         die();
     }
+
+    public static function redirectToCartorBack($url, $msg)
+    {
+        echo '<script>';
+        echo 'if (confirm("' . $msg . ' ¿Quieres ver el carrito?")) {';
+        echo '    window.location.assign("index.php?page=Carretilla-ViewCarretilla");';
+        echo '} else {';
+        echo '    window.location.assign("' . $url . '");';
+        echo '}';
+        echo '</script>';
+        die();
+    }
+
     public static function addLink($href)
     {
         $tmpLinks = \Utilities\Context::getContextByKey("SiteLinks");

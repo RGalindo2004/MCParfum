@@ -4,35 +4,26 @@ namespace Controllers\Carretilla;
 
 use Controllers\PublicController;
 use Utilities\Site;
+use Utilities\Security;
 use Dao\Cart\Cart as CartDao;
 
 class AddProducto extends PublicController
 {
-    private $productid = '';
-    public $productPrice = '';
-    public $productName = '';
 
     public function run(): void
     {
-        $usercod = $_GET['usercod'] ?? null;
-
-        if ($usercod === null) {
-            Site::redirectToWithMsg("index.php?page=Sec_Login", "Debes iniciar sesión para agregar productos.");
-            return;
+        $userId = Security::getUserId();
+        if ($userId == 0) {
+            Site::redirectToWithMsg("index.php?page=Sec_Login", "Necesita iniciar sesión para comprar");
         }
 
         $productId = $_POST['productid'] ?? $_GET['productid'];
         $productPrice = $_POST['productPrice'] ?? $_GET['productPrice'];
-        $productName = $_POST['productName'] ?? $_GET['productName'];
+        $productName = $_GET['productName'] ?? $_GET['productName'];
+        $crrctd = $_POST['quantity'] ?? 1;
 
-        $result = CartDao::AddProductoCartUser(
-            $usercod,
-            $productId,
-            $productName,
-            1,
-            $productPrice
-        );
+        CartDao::AddProductoCartUser($userId, $productId, $crrctd, $productPrice, $productName);
 
-        Site::redirectToWithMsg("Carretilla/carretilla", "Producto agregado exitosamente");
+        Site::redirectToCartorBack("index.php?page=HomeController", "Producto agregado exitosamente.");
     }
 }

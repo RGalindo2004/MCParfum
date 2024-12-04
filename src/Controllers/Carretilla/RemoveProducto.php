@@ -5,18 +5,19 @@ namespace Controllers\Carretilla;
 use Controllers\PublicController;
 use Dao\Cart\Cart as CartDao;
 use Utilities\Site;
+use Utilities\Security;
 
 class RemoveProducto extends PublicController
 {
     public function run(): void
     {
-        $usercod = $_GET['usercod'] ?? $_SERVER['REMOTE_ADDR'];
+        $userId = Security::getUserId();
         $productId = $_GET['productId'] ?? null;
 
         if ($productId) {
-            CartDao::removeProductoCartUser($usercod, $productId);
+            CartDao::removeProductoCartUser($userId, $productId);
         }
 
-        Site::redirectToWithMsg('Carretilla/carretilla', 'Producto eliminado del carrito.');
+        Site::redirectToWithMsg('index.php?page=Carretilla-ViewCarretilla', 'Producto eliminado del carrito.');
     }
 }

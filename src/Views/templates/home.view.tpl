@@ -52,6 +52,3 @@
         </span>
     </div>
 </div>
-
-{{usercod}}
-
