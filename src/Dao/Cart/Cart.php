@@ -103,20 +103,43 @@ class Cart extends \Dao\Table
 
     /*Parte que va la carretilla*/
 
-    public static function AddProductoCartAnon($anoncod, $produdId, $productName, $crrctd, $productPrice) {
-        $sql = "INSERT INTO carretillaanon (anoncod, productId, productName, crrctd, productPrice, crrfching) 
-                VALUES (:anoncod, :productId, :productName, :crrctd, :productPrice, NOW())";
-        
+    public static function AddProductoCartUser($usercod, $productId, $crrctd, $productPrice)
+    {
+        $sql = "INSERT INTO carretilla (usercod, productId, crrctd, crrprc, crrfching) 
+            VALUES (:usercod, :productId, :crrctd, :productPrice, NOW()) 
+            ON DUPLICATE KEY UPDATE 
+            crrctd = crrctd + :crrctd, 
+            crrprc = :productPrice, 
+            crrfching = NOW()";
+
         $result = self::executeNonQuery(
-            $sql, 
+            $sql,
             array(
-                "anoncod" => $anoncod,
-                "productId" => $produdId,
-                "productName" => $productName,
+                "usercod" => $usercod,
+                "productId" => $productId,
                 "crrctd" => $crrctd,
                 "productPrice" => $productPrice
             )
         );
+
         return $result;
+    }
+
+    public static function getProductosCarretillaUser($usercod)
+    {
+        $sql = "SELECT * FROM carretilla WHERE usercod = :usercod";
+        return self::obtenerRegistros($sql, array("usercod" => $usercod));
+    }
+
+    public static function removeProductoCartUser($usercod, $productId)
+    {
+        $sql = "DELETE FROM carretilla WHERE usercod = :usercod AND productId = :productId";
+        return self::executeNonQuery($sql, array("usercod" => $usercod, "productId" => $productId));
+    }
+
+    public static function updateProductoCantidad($usercod, $productId, $newCantidad)
+    {
+        $sql = "UPDATE carretilla SET crrctd = :newCantidad WHERE usercod = :usercod AND productId = :productId";
+        return self::executeNonQuery($sql, array("usercod" => $usercod, "productId" => $productId, "newCantidad" => $newCantidad));
     }
 }

@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="public/css_src/home.less" />
+
 <section class="fullCenter">
   <form class="grid" method="post" action="index.php?page=sec_login{{if redirto}}&redirto={{redirto}}{{endif redirto}}">
     <section class="depth-1 row col-12 col-m-8 offset-m-2 col-xl-6 offset-xl-3">

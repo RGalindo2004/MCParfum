@@ -43,7 +43,7 @@
     </div>
     {{endfor productsNew}}
     <div class="carritobtn">
-        <a href="index.php?page=CarritoCompras-CarritoComprasList"><i class="fas fa-shopping-cart"
+        <a href="index.php?page=Carretilla-ViewCarretilla"><i class="fas fa-shopping-cart"
                 id="carritoicono"></i></a>
         <span class="btn-text">
             <div class="texto-animado">

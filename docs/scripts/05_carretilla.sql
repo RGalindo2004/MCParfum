@@ -1,5 +1,4 @@
 CREATE TABLE `carretillaanon` (
-    `codcarretilla` BIGINT AUTO_INCREMENT PRIMARY KEY,
     `anoncod` VARCHAR(128) NOT NULL,
     `productId` INT(11) NOT NULL,
     `productName` varchar(255) NOT NULL,
@@ -9,4 +8,4 @@ CREATE TABLE `carretillaanon` (
     FOREIGN KEY (`productId`) REFERENCES `products` (`productId`)
     ON DELETE NO ACTION 
     ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+);

@@ -54,7 +54,8 @@ VALUES
 ('usuarios_UPD_enable', 'usuarios_UPD_enable', 'ACT', 'FNC'),
 ('funcionesroles_DEL_enable', 'funcionesroles_DEL_enable', 'ACT', 'FNC'),
 ('funcionesroles_INS_enable', 'funcionesroles_INS_enable', 'ACT', 'FNC'),
-('funcionesroles_UPD_enable', 'funcionesroles_UPD_enable', 'ACT', 'FNC');
+('funcionesroles_UPD_enable', 'funcionesroles_UPD_enable', 'ACT', 'FNC'),
+('Controllers\\Checkout\\Checkout', 'Controllers\\Checkout\\Checkout', 'ACT', 'CTR');
 
 INSERT INTO `funciones_roles` 
 (`rolescod`, `fncod`, `fnrolest`, `fnexp`) 
@@ -94,4 +95,6 @@ VALUES
 ('Supervisor', 'Menu_Usuarios', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Controllers\\FuncionesRoles\\FuncionesRolesForm', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Controllers\\FuncionesRoles\\FuncionesRolesList', 'ACT', '2024-12-08 00:00:00'),
-('Supervisor', 'Menu_FuncionesRoles', 'ACT', '2024-12-08 00:00:00');
+('Admin', 'Controllers\\Checkout\\Checkout', 'ACT', '2024-12-08 00:00:00'),
+('Supervisor', 'Controllers\\Checkout\\Checkout', 'ACT', '2024-12-08 00:00:00'),
+('Cliente', 'Controllers\\Checkout\\Checkout', 'ACT', '2024-12-08 00:00:00');
