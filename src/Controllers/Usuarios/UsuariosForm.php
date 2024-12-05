@@ -57,10 +57,9 @@ class UsuariosForm extends PrivateController
         if ($mode == 'UPD') {
             $usercod = $_GET['usercod'];
             $usuario = Usuarios::ObtenerUsuariosPorID($usercod);
-            $userest = $usuario['userest'];  // Estado del usuario
+            $userest = $usuario['userest'];
         } else {
-            // Si estamos en modo de inserción, no hay usuario
-            $userest = 'ACT'; // Definir un valor por defecto (ACTIVO)
+            $userest = 'ACT';
         }
 
         $this->inicializarForm();
