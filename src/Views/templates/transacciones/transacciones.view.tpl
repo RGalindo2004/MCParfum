@@ -26,6 +26,8 @@
         </tbody>
     </table>
 
+    <p><strong>Suma total de mis pagos: ${{sumaTotal}}</strong></p>
+
     <p>
     <div><button id="btnVolver" class="btn"><a href="index.php?page=HomeController">Volver</a></button></div>
     </p>
