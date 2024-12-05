@@ -150,3 +150,4 @@ class Cart extends \Dao\Table
         return self::executeNonQuery($sql, array("usercod" => $usercod));
     }
 }
+?>
