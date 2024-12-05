@@ -5,6 +5,7 @@
         <h1 class="titulo">{{SITE_TITLE}}</h1>
         <h2 class="TxtBienvenida">Bienvenido a nuestro sitio</h2>
         <p>Explora nuestro catálogo y descubre lo que tenemos para ofrecerte.</p>
+        
         <a href="index.php?page=HomeController" class="btnCatalogo">Ver Catálogo</a>
     </div>
 </body>

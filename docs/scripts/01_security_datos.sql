@@ -22,10 +22,6 @@ INSERT INTO `roles_usuarios`
     (1, 'Admin', 'ACT', '2024-09-09 00:00:00', '2024-12-08 00:00:00'),
     (2, 'Supervisor', 'ACT', '2024-09-09 00:00:00', '2024-12-08 00:00:00');
 
-    INSERT INTO `roles_usuarios` 
-    (`usercod`, `rolescod`, `roleuserest`, `roleuserfch`, `roleuserexp`) VALUES 
-    (3, 'Cliente', 'ACT', '2024-09-09 00:00:00', '2024-12-08 00:00:00');
-
 INSERT INTO `funciones` 
 (`fncod`, `fndsc`, `fnest`, `fntyp`) 
 VALUES 
@@ -47,6 +43,10 @@ VALUES
 ('Controllers\\Productos\\ProductosForm', 'Controllers\\Productos\\ProductosForm', 'ACT', 'CTR'),
 ('Controllers\\Productos\\ProductosList', 'Controllers\\Productos\\ProductosList', 'ACT', 'CTR'),
 ('Menu_Productos', 'Menu_Productos', 'ACT', 'MNU'),
+('Controllers\\Transacciones\\ViewTransacciones', 'Controllers\\Transacciones\\ViewTransacciones', 'ACT', 'CTR'),
+('Controllers\\PagosTransacciones\\ViewPagosTransacciones', 'Controllers\\PagosTransacciones\\ViewPagosTransacciones', 'ACT', 'CTR'),
+('Menu_Transacciones', 'Menu_Transacciones', 'ACT', 'MNU'),
+('Menu_PagosTransacciones', 'Menu_PagosTransacciones', 'ACT', 'MNU'),
 ('useractcod_enable', 'useractcod_enable', 'ACT', 'FNC'),
 ('useremail_enable', 'useremail_enable', 'ACT', 'FNC'),
 ('userest_enable', 'userest_enable', 'ACT', 'FNC'),
@@ -99,11 +99,21 @@ VALUES
 ('Admin', 'funcionesroles_DEL_enable', 'ACT', '2024-12-08 00:00:00'),
 ('Admin', 'funcionesroles_INS_enable', 'ACT', '2024-12-08 00:00:00'),
 ('Admin', 'funcionesroles_UPD_enable', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'Controllers\\Checkout\\Checkout', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'Controllers\\Transacciones\\ViewTransacciones', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'Controllers\\PagosTransacciones\\ViewPagosTransacciones', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'Menu_PagosTransacciones', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'Menu_Transacciones', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Controllers\\Usuarios\\UsuariosForm', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Controllers\\Usuarios\\UsuariosList', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Menu_Usuarios', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Controllers\\FuncionesRoles\\FuncionesRolesForm', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Controllers\\FuncionesRoles\\FuncionesRolesList', 'ACT', '2024-12-08 00:00:00'),
-('Admin', 'Controllers\\Checkout\\Checkout', 'ACT', '2024-12-08 00:00:00'),
 ('Supervisor', 'Controllers\\Checkout\\Checkout', 'ACT', '2024-12-08 00:00:00'),
-('Cliente', 'Controllers\\Checkout\\Checkout', 'ACT', '2024-12-08 00:00:00');
+('Supervisor', 'Controllers\\Transacciones\\ViewTransacciones', 'ACT', '2024-12-08 00:00:00'),
+('Supervisor', 'Controllers\\PagosTransacciones\\ViewPagosTransacciones', 'ACT', '2024-12-08 00:00:00'),
+('Supervisor', 'Menu_PagosTransacciones', 'ACT', '2024-12-08 00:00:00'),
+('Supervisor', 'Menu_Transacciones', 'ACT', '2024-12-08 00:00:00'),
+('Cliente', 'Controllers\\Checkout\\Checkout', 'ACT', '2024-12-08 00:00:00'),
+('Cliente', 'Controllers\\Transacciones\\ViewTransacciones', 'ACT', '2024-12-08 00:00:00'),
+('Cliente', 'Menu_Transacciones', 'ACT', '2024-12-08 00:00:00');

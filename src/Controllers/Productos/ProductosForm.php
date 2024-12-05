@@ -38,7 +38,7 @@ class ProductosForm extends PrivateController
         "productName" => '',
         "productDescription" => '',
         "productPrice" => 0,
-        "productImgUrl" => '',
+        "productImgUrl" => 'img/',
         "productStatus" => ''
     ];
 

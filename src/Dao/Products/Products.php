@@ -24,4 +24,24 @@ class Products extends Table {
     $registros = self::obtenerRegistros($sqlstr, $params);
     return $registros;
   }
+
+  public static function CrearRolCliente($rolUsuario)
+    {
+      $sqlstr = 'INSERT INTO roles_usuarios (
+        usercod,
+        rolescod,
+        roleuserest,
+        roleuserexp,
+        roleuserfch
+    ) VALUES (
+        :usercod,
+        :rolescod,
+        :roleuserest,
+        :roleuserexp,
+        :roleuserfch
+    );';
+
+    return self::executeNonQuery($sqlstr, $rolUsuario);
+    }
+    
 }

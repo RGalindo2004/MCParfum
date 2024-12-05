@@ -8,4 +8,5 @@
     <pre>{{orderjson}}</pre>
 </div>
 
-<button type="submit"><a href="index.php?page=HomeController">Volver</a></button>
+<button type="submit"><a href="index.php?page=HomeController">Volver</a></button> &nbsp;
+<button type="submit" class="primary"><a href="index.php?page=Transacciones-ViewTransacciones">Ver mis pagos</a></button>

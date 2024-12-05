@@ -3,51 +3,59 @@
     {
       "id": "Menu_SignIn",
       "nav_url": "index.php?page=Sec_Login",
-      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Iniciar Sesión"
+      "nav_label": "<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Iniciar Sesión"
     },
-     {
+    {
       "id": "Menu_SignUp",
       "nav_url": "index.php?page=Sec_Register",
-      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Crear Cuenta"
+      "nav_label": "<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Crear Cuenta"
     }
   ],
   "private": [
     {
       "id": "Menu_Usuarios",
       "nav_url": "index.php?page=Usuarios-UsuariosList",
-      "nav_label":"<i class=\"fas fa-user\"></i>&nbsp;Lista de usuarios"
+      "nav_label": "<i class=\"fas fa-user\"></i>&nbsp;Lista de usuarios"
     },
     {
       "id": "Menu_Productos",
       "nav_url": "index.php?page=Productos_ProductosList",
-      "nav_label":"<i class=\"fas fa-tags\"></i>&nbsp;Productos"
+      "nav_label": "<i class=\"fas fa-tags\"></i>&nbsp;Productos"
     },
     {
       "id": "Menu_Roles",
       "nav_url": "index.php?page=Roles-RolesList",
-      "nav_label":"<i class=\"fas fa-person\"></i>&nbsp;Roles"
+      "nav_label": "<i class=\"fas fa-person\"></i>&nbsp;Roles"
     },
     {
       "id": "Menu_Funciones",
       "nav_url": "index.php?page=Funciones-FuncionesList",
-      "nav_label":"<i class=\"fas fa-rocket\"></i>&nbsp;Funciones"
+      "nav_label": "<i class=\"fas fa-rocket\"></i>&nbsp;Funciones"
     },
     {
       "id": "Menu_FuncionesRoles",
       "nav_url": "index.php?page=FuncionesRoles-FuncionesRolesList",
-      "nav_label":"<i class=\"fas fa-tools\"></i>&nbsp;Funciones por roles"
+      "nav_label": "<i class=\"fas fa-tools\"></i>&nbsp;Funciones por roles"
     },
     {
       "id": "Menu_RolesUsuarios",
       "nav_url": "index.php?page=RolesUsuarios-RolesUsuariosList",
-      "nav_label":"<i class=\"fas fa-hammer\"></i>&nbsp;Roles por usuarios"
+      "nav_label": "<i class=\"fas fa-hammer\"></i>&nbsp;Roles por usuarios"
     },
     {
-      "id":"Menu_PaymentCheckout",
+      "id": "Menu_PaymentCheckout",
       "nav_url": "index.php?page=Checkout_Checkout",
       "nav_label": "Carretilla de Compra"
+    },
+    {
+      "id": "Menu_Transacciones",
+      "nav_url": "index.php?page=Transacciones-ViewTransacciones",
+      "nav_label": "<i class=\"fas fa-wallet\"></i>&nbsp;Mis Transacciones"
+    },
+    {
+      "id": "Menu_PagosTransacciones",
+      "nav_url": "index.php?page=PagosTransacciones-ViewPagosTransacciones",
+      "nav_label": "<i class=\"fas fa-credit-card\"></i>&nbsp;Pagos y Transacciones"
     }
-
-    
   ]
 }

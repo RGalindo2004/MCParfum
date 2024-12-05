@@ -56,12 +56,6 @@ class Security extends \Dao\Table
         if (!\Utilities\Validators::IsValidPassword($password)) {
             throw new Exception("Contraseña debe ser al menos 8 caracteres, 1 número, 1 mayúscula, 1 símbolo especial");
         }
-        if (!\Utilities\Validators::IsValidUsername($username)) {
-            throw new Exception("El usuario debe tener entre 4 y 20 caracteres alfanuméricos. Puede incluir guiones bajos.");
-        }
-        if (self::getUsuarioByUsername($username)) {
-            throw new Exception("El nombre de usuario ya está en uso.");
-        }
 
         $newUser = self::_usuarioStruct();
         $hashedPassword = self::_hashPassword($password);
@@ -87,7 +81,31 @@ class Security extends \Dao\Table
         now(), :userpswdest, :userpswdexp, :userest, :useractcod,
         now(), :usertipo);";
 
-        return self::executeNonQuery($sqlIns, $newUser);
+        self::executeNonQuery($sqlIns, $newUser);
+        $idusuario = self::getLastInsertId();
+
+        $sqlstr = 'INSERT INTO roles_usuarios (
+        usercod,
+        rolescod,
+        roleuserest,
+        roleuserexp,
+        roleuserfch
+        ) VALUES (
+        :usercod,
+        "Cliente",
+        :roleuserest,
+        "2024-12-08 00:00:00",
+        now()
+        );';
+
+        $rolusuario = array("usercod" => $idusuario, "roleuserest" => Estados::ACTIVO);
+        $resultado = self::executeNonQuery($sqlstr, $rolusuario);
+
+        if ($resultado === false) {
+            throw new Exception("Error");
+        }
+
+        return $idusuario;
     }
 
     static public function getUsuarioByUsername($username)

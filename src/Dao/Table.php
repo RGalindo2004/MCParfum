@@ -119,6 +119,11 @@ abstract class Table
             return array();
         }
     }
+
+    static public function getLastInsertId()
+    {
+        return self::getConn()->lastInsertId();
+    }
 }
 
 ?>

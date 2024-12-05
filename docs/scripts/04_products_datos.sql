@@ -15,8 +15,12 @@ INSERT INTO `products` (`productName`, `productDescription`, `productPrice`, `pr
 ('Nautica Clasica', 'Nautica Clasica es una fragancia atemporal y fresca, perfecta para cualquier ocasión.', 120.90, 'img/nautica_clasica.jpg', 'ACT'),
 ('Nautica Voyage', 'Nautica Voyage es una fragancia ligera y fresca, inspirada en la brisa marina.', 135.25, 'img/nautica_voyage.jpg', 'ACT'),
 ('Odyssey Mandarinsky', 'Odyssey Mandarinsky es una fragancia oriental, cálida y envolvente.', 140.50, 'img/odyssey_mandarinsky.jpg', 'ACT'),
-('Perfume Guess Seductive Homme Blue Caballero', 'Perfume Guess Seductive Homme Blue Caballero es una fragancia fresca y sofisticada para hombres seguros.', 200.30, 'img/perfume_guess_seductive_homme_blue_caballero.jpg', 'ACT'),
-('Perfume Guess Seductive Homme Red Caballero', 'Perfume Guess Seductive Homme Red Caballero es una fragancia ardiente con notas especiadas.', 190.00, 'img/perfume_guess_seductive_homme_red_caballero.jpg', 'ACT'),
 ('Perfume Guess Tradicional Dama', 'Perfume Guess Tradicional Dama es una fragancia femenina y elegante, con un toque floral.', 175.00, 'img/perfume_guess_tradicional_dama.jpg', 'ACT'),
 ('Set Guess Tradicional Dama', 'Set Guess Tradicional Dama es un conjunto de fragancias sofisticadas y femeninas.', 250.00, 'img/set_guess_tradicional_dama.jpg', 'ACT'),
-('Yara', 'Yara es una fragancia exótica y dulce, perfecta para ocasiones especiales.', 130.75, 'img/yara.jpg', 'ACT');
+('Yara', 'Yara es una fragancia exótica y dulce, perfecta para ocasiones especiales.', 130.75, 'img/yara.jpg', 'ACT'),
+('Perfume Guess Seductive Homme Blue Caballero', 'Perfume Guess Seductive Homme Blue Caballero es una fragancia fresca y sofisticada para hombres seguros.', 200.30, 'img/perfume_guess_seductive_homme_blue_caballero.jpg', 'ACT'),
+('Perfume Guess Seductive Homme Red Caballero', 'Perfume Guess Seductive Homme Red Caballero es una fragancia ardiente con notas especiadas.', 190.00, 'img/perfume_guess_seductive_homme_red_caballero.jpg', 'ACT');
+
+DELETE FROM `products`
+WHERE `productName` IN ('Perfume Guess Seductive Homme Blue Caballero', 'Perfume Guess Seductive Homme Red Caballero');
+--Por algún motivo no funcionan las imagenes
