@@ -44,8 +44,8 @@ class Checkout extends PrivateController
         if ($this->isPostBack()) {
             $PayPalOrder = new \Utilities\Paypal\PayPalOrder(
                 "order_" . (time() - 10000000),
-                "http://localhost/NEGOCIOSWEB/MCParfum/index.php?page=Checkout_Error",
-                "http://localhost/NEGOCIOSWEB/MCParfum/index.php?page=Checkout_Accept"
+                "http://localhost/negociosweb/MCParfum/index.php?page=Checkout_Error",
+                "http://localhost/negociosweb/MCParfum/index.php?page=Checkout_Accept"
             );
 
             foreach ($cartItems as $item) {

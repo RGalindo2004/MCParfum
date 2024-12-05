@@ -20,7 +20,7 @@ class UsuariosList extends PrivateController
 
         $estadosPswArr = [
             "ACT" => "Activa",
-            "DES" => "Desactiva"
+            "INA" => "Inactiva"
         ];
 
         $estadosUserArr = [
