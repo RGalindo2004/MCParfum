@@ -22,6 +22,10 @@ INSERT INTO `roles_usuarios`
     (1, 'Admin', 'ACT', '2024-09-09 00:00:00', '2024-12-08 00:00:00'),
     (2, 'Supervisor', 'ACT', '2024-09-09 00:00:00', '2024-12-08 00:00:00');
 
+    INSERT INTO `roles_usuarios` 
+    (`usercod`, `rolescod`, `roleuserest`, `roleuserfch`, `roleuserexp`) VALUES 
+    (3, 'Cliente', 'ACT', '2024-09-09 00:00:00', '2024-12-08 00:00:00');
+
 INSERT INTO `funciones` 
 (`fncod`, `fndsc`, `fnest`, `fntyp`) 
 VALUES 
@@ -40,6 +44,9 @@ VALUES
 ('Controllers\\RolesUsuarios\\RolesUsuariosForm', 'Controllers\\RolesUsuarios\\RolesUsuariosForm', 'ACT', 'CTR'),
 ('Controllers\\RolesUsuarios\\RolesUsuariosList', 'Controllers\\RolesUsuarios\\RolesUsuariosList', 'ACT', 'CTR'),
 ('Menu_RolesUsuarios', 'Menu_RolesUsuarios', 'ACT', 'MNU'),
+('Controllers\\Productos\\ProductosForm', 'Controllers\\Productos\\ProductosForm', 'ACT', 'CTR'),
+('Controllers\\Productos\\ProductosList', 'Controllers\\Productos\\ProductosList', 'ACT', 'CTR'),
+('Menu_Productos', 'Menu_Productos', 'ACT', 'MNU'),
 ('useractcod_enable', 'useractcod_enable', 'ACT', 'FNC'),
 ('useremail_enable', 'useremail_enable', 'ACT', 'FNC'),
 ('userest_enable', 'userest_enable', 'ACT', 'FNC'),
@@ -74,7 +81,9 @@ VALUES
 ('Admin', 'Menu_FuncionesRoles', 'ACT', '2024-12-08 00:00:00'),
 ('Admin', 'Controllers\\RolesUsuarios\\RolesUsuariosForm', 'ACT', '2024-12-08 00:00:00'),
 ('Admin', 'Controllers\\RolesUsuarios\\RolesUsuariosList', 'ACT', '2024-12-08 00:00:00'),
-('Admin', 'Menu_RolesUsuarios', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'Controllers\\Productos\\ProductosForm', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'Controllers\\Productos\\ProductosList', 'ACT', '2024-12-08 00:00:00'),
+('Admin', 'Menu_Productos', 'ACT', '2024-12-08 00:00:00'),
 ('Admin', 'useractcod_enable', 'ACT', '2024-12-08 00:00:00'),
 ('Admin', 'useremail_enable', 'ACT', '2024-12-08 00:00:00'),
 ('Admin', 'userest_enable', 'ACT', '2024-12-08 00:00:00'),

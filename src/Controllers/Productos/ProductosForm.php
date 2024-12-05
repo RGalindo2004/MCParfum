@@ -2,13 +2,14 @@
 
 namespace Controllers\Productos;
 
+use Controllers\PrivateController;
 use Controllers\PublicController;
 use Views\Renderer;
 use Utilities\Site;
 use Dao\Productos\Productos;
 use Utilities\Validators;
 
-class ProductosForm extends PublicController
+class ProductosForm extends PrivateController
 {
     private $viewData = [];
     private $modeDscArr = [

@@ -103,10 +103,10 @@ class Cart extends \Dao\Table
 
     /*Parte que va la carretilla*/
 
-    public static function AddProductoCartUser($usercod, $productId, $crrctd, $productPrice)
+    public static function AddProductoCartUser($usercod, $productId, $productName, $crrctd, $productPrice)
     {
-        $sql = "INSERT INTO carretilla (usercod, productId, crrctd, crrprc, crrfching) 
-            VALUES (:usercod, :productId, :crrctd, :productPrice, NOW()) 
+        $sql = "INSERT INTO carretilla (usercod, productId, productName, crrctd, crrprc, crrfching) 
+            VALUES (:usercod, :productId, :productName, :crrctd, :productPrice, NOW()) 
             ON DUPLICATE KEY UPDATE 
             crrctd = crrctd + :crrctd, 
             crrprc = :productPrice, 
@@ -117,6 +117,7 @@ class Cart extends \Dao\Table
             array(
                 "usercod" => $usercod,
                 "productId" => $productId,
+                "productName" => $productName,
                 "crrctd" => $crrctd,
                 "productPrice" => $productPrice
             )
@@ -141,5 +142,11 @@ class Cart extends \Dao\Table
     {
         $sql = "UPDATE carretilla SET crrctd = :newCantidad WHERE usercod = :usercod AND productId = :productId";
         return self::executeNonQuery($sql, array("usercod" => $usercod, "productId" => $productId, "newCantidad" => $newCantidad));
+    }
+
+    public static function removeProductosCarretillaUser($usercod)
+    {
+        $sql = "DELETE FROM carretilla WHERE usercod = :usercod";
+        return self::executeNonQuery($sql, array("usercod" => $usercod));
     }
 }

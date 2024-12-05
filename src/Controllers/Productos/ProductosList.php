@@ -2,11 +2,12 @@
 
 namespace Controllers\Productos;
 
+use Controllers\PrivateController;
 use Controllers\PublicController;
 use Dao\Productos\Productos;
 use Views\Renderer;
 
-class ProductosList extends PublicController
+class ProductosList extends PrivateController
 {
     public function run(): void
     {

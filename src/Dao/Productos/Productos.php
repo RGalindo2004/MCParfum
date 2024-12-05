@@ -43,7 +43,6 @@ class Productos extends Table
     public static function eliminarProducto($codigo)
     {
         $sqlstr = "update products set productStatus = 'INA' where productId = :productId;";
-        // "delete from products where productId = :productId;"
         return self::executeNonQuery($sqlstr, ["productId" => $codigo]);
     }
 }

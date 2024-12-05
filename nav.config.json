@@ -9,18 +9,18 @@
       "id": "Menu_SignUp",
       "nav_url": "index.php?page=Sec_Register",
       "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Crear Cuenta"
-    },
-    {
-     "id": "Menu_Productos",
-     "nav_url": "index.php?page=Productos_ProductosList",
-     "nav_label":"<i class=\"fas fa-tags\"></i>&nbsp;Productos"
-   }
+    }
   ],
   "private": [
     {
       "id": "Menu_Usuarios",
       "nav_url": "index.php?page=Usuarios-UsuariosList",
       "nav_label":"<i class=\"fas fa-user\"></i>&nbsp;Lista de usuarios"
+    },
+    {
+      "id": "Menu_Productos",
+      "nav_url": "index.php?page=Productos_ProductosList",
+      "nav_label":"<i class=\"fas fa-tags\"></i>&nbsp;Productos"
     },
     {
       "id": "Menu_Roles",

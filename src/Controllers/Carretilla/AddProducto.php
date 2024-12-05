@@ -17,11 +17,11 @@ class AddProducto extends PublicController
         }
 
         $productId = $_POST['productid'] ?? $_GET['productid'];
-        $productPrice = $_POST['productPrice'] ?? $_GET['productPrice'];
         $productName = $_GET['productName'] ?? $_GET['productName'];
+        $productPrice = $_POST['productPrice'] ?? $_GET['productPrice'];
         $crrctd = $_POST['quantity'] ?? 1;
 
-        CartDao::AddProductoCartUser($userId, $productId, $crrctd, $productPrice, $productName);
+        CartDao::AddProductoCartUser($userId, $productId, $productName, $crrctd, $productPrice);
 
         $_SESSION['cart_items'][$productId] = [
             'productName' => $productName,
