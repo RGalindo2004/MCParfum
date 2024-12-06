@@ -13,7 +13,6 @@ class UsuariosList extends PrivateController
     {
         $userStatusFilter = isset($_GET['status']) && !empty($_GET['status']) ? $_GET['status'] : 'EMP';
 
-        // Llama al DAO para obtener los usuarios filtrados
         $usuariosDao = Usuarios::ObtenerUsuariosPorEstado($userStatusFilter);
         
         $viewUsuarios = [];
